@@ -60,9 +60,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 //ROUTES
 var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users.js');
-var landingPageRouter = require('./routes/landingPage.js')
+var landingPageRouter = require('./routes/landingPage.js');
+var cadastroProdutos = require('./routes/products.js');
 
 app.use('/', landingPageRouter);
+app.use('/logProd', cadastroProdutos);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 

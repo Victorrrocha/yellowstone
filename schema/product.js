@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    name: {
+    titulo: {
         type: String,
         required: true
     }, 
@@ -23,10 +23,13 @@ const productSchema = new mongoose.Schema({
     cor :{
         type: String
     },
-
+    price: {
+        type: Number,
+        required: true
+    },
 
 });
 
 const Product = mongoose.model('Product', productSchema);
 
-module.exports = Products;
+module.exports = Product;

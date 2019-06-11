@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title> Cadastro de Jogos </title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
+    
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-sm navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+                <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+                yellowstone
+        </a>
+
+        
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Jogos e consoles</h1>
+        </div>
+</div>
+<br>
+    <form action="POST">
+        <div class="row">
+            <div class="col">
+                    <input type="text" class="form-control" placeholder="Título">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Código">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Preço">
+            </div>
+            <div class="col">
+                    <input type="text" class="form-control" placeholder="Gênero">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Áudio">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Conteúdo da embalagem">
+            </div>
+            <div class="col md-4">
+                    <select id="inputState" class="form-control">
+                      <option selected>Plataforma...</option>
+                      <option>PlayStation 4</option>
+                      <option>Xbox One</option>
+                      <option>Nintendo Switch</option>
+                      <option>Polistation</option>
+                    </select>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Imagem">
+            </div>
+            
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+    </form>
+    <br>
+<a href="/logProd/cadastroProdutos"><button class="btn btn-danger">Voltar</button></a>
+
+</body>
+</html>
