@@ -4,9 +4,21 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 const User = require('../schema/user');
+const Products = require('../schema/product')
 
 router.get('/', function(req, res, next) {
-    res.render('landingPage');
+  //const prod = req.Products;  
+  Products.find().exec()
+  .then(p =>{
+    console.log(p);
+    res.render('landingPage', {
+      produto: p
+    });
+  })
+  .catch(err =>{
+    console.log(err);
+  });
+  
 });
 
 router.get('/login', function(req, res, next) {
