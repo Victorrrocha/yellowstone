@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+var neo4j = require('neo4j-driver').v1;
+
+var driver = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic('neo4j', '1234'));
+var session = driver.session();
 
 const User = require('../schema/user');
 const Products = require('../schema/product')
@@ -93,6 +97,17 @@ router.post('/register', (req, res) => {
       }
     });
   }
+
+
+  session
+  .run('CREATE(n:User {email:{email} } ) RETURN n.email', {email: email})
+  .then(function(){
+    console.log("ADDED TO NEO4J");
+    session.close();
+  })
+  .catch(function(err){
+    console.log(err);
+  })
 });
 
 // Login

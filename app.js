@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var neo4j = require('neo4j-driver').v1;
 
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -43,6 +44,8 @@ app.use(passport.session());
 
 //Connect flash
 app.use(flash());
+
+//Connect Neo4j
 
 //Global var
 app.use((req, res, next) =>{
