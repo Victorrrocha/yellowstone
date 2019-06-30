@@ -8,6 +8,7 @@ const Products = require('../schema/product')
 
 router.get('/', function(req, res, next) {
   //const prod = req.Products;  
+  
   Products.find().exec()
   .then(p =>{
     console.log(p);
@@ -26,6 +27,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
+  
   res.render('register');
 });
   
@@ -103,9 +105,20 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/loggedPage' ,function(req, res) {
-  res.render('loggedPage', {
-    name: req.user.name
+  
+  Products.find().exec()
+  .then(p =>{
+    console.log(p);
+    res.render('loggedPage', {
+      produto: p,
+      name: req.user.name
+    });
   })
+  .catch(err =>{
+    console.log(err);
+  });
+  
+  
 });
 
 // Logout

@@ -59,13 +59,14 @@ $(document).ready(function() {
 		
 		<div class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
+
 						<li class="nav-item">
 								<a href="/login" class="nav-link"> Entrar </a>
 						</li>
 						<li class="nav-item">
 								<a href="/register" class="nav-link"> Cadastrar </a>
 						</li>
-
+						
 					</ul>
 		</div>
 		
@@ -86,7 +87,7 @@ $(document).ready(function() {
 		<figure class="card card-product">
 			<div class="img-wrap"> <img src= <%= produto[i].imagem %> ></div>
 			<figcaption class="info-wrap">
-				<h6 class="title "><a href="#"> <%= produto[i].titulo %> - <%= produto[i].plataforma %> </a></h6>
+				<h6 class="title "><a href="#"> <%= produto[i].titulo %> - <%= produto[i].plataforma %> <%= produto[i].autor %> </a></h6>
 				
 				<div class="price-wrap">
 					<span class="price-new">R$ <%= produto[i].preço %></span>
