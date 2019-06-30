@@ -4,6 +4,6 @@
 <p>A fullstack project of an Online store</p>
 <h5>HOW TO RUN IT</h5>
 <ul>
-	<li>clone project</li>
-	<li>execute "nodemon" on the terminal</li>
+	<li>It uses MongoDB Atlas, change the keys</li>
+	<li>nodemon</li>
 </ul>
