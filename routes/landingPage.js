@@ -12,8 +12,8 @@ const Products = require('../schema/product')
 
 router.get('/', function(req, res, next) {
   //const prod = req.Products;  
-  
-  Products.find().exec()
+  Products.aggregate( [ { $sample: {size: 12} } ] )
+  .exec()
   .then(p =>{
     console.log(p);
     res.render('landingPage', {
@@ -23,6 +23,17 @@ router.get('/', function(req, res, next) {
   .catch(err =>{
     console.log(err);
   });
+
+  // Products.find().exec()
+  // .then(p =>{
+  //   console.log(p);
+  //   res.render('landingPage', {
+  //     produto: p
+  //   });
+  // })
+  // .catch(err =>{
+  //   console.log(err);
+  // });
   
 });
 
