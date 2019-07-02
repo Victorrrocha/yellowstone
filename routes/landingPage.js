@@ -12,7 +12,7 @@ const Products = require('../schema/product')
 
 router.get('/', function(req, res, next) {
   //const prod = req.Products;  
-  Products.aggregate( [ { $sample: {size: 12} } ] )
+  Products.aggregate( [ { $sample: {size: 6} } ] )
   .exec()
   .then(p =>{
     console.log(p);
@@ -132,7 +132,8 @@ router.post('/login', (req, res, next) => {
 
 router.get('/loggedPage' ,function(req, res) {
   
-  Products.find().exec()
+  Products.aggregate( [ { $sample: {size: 6} } ] )
+  .exec()
   .then(p =>{
     console.log(p);
     res.render('loggedPage', {
@@ -146,6 +147,14 @@ router.get('/loggedPage' ,function(req, res) {
   
   
 });
+
+///COMPRAS 
+router.post('/carrinho', function(req, res){
+  console.log('OIIIIII');
+  console.log(req.body.cod);
+});
+
+
 
 // Logout
 router.get('/logout', (req, res) => {

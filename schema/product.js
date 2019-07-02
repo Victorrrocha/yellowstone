@@ -23,8 +23,9 @@ const productSchema = new mongoose.Schema({
         type: Number
     }, autor:{
         type: String
-    },
-    imagem:{
+    }, diretor:{
+        type: String
+    }, imagem:{
         type: String
     }
 

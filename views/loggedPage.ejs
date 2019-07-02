@@ -95,8 +95,24 @@ $(document).ready(function() {
 				
 				<div class="price-wrap">
 					<span class="price-new">R$ <%= produto[i].preço %></span>
-
 				</div> <!-- price-wrap.// -->
+				
+				
+					<div>
+						<button onclick= "adicionouCarrinho('<%= produto[i].codigo %>')" value="<%= produto[i].codigo %>" type="submit" class="btn btn-primary">Adicionar ao carrinho</button>
+						<script>
+							function adicionouCarrinho(codigo){
+								alert(codigo);
+
+								$.post('/carrinho',{
+									cod: codigo 
+								}
+							);
+
+							}
+						</script>
+					</div>
+				
 				
 			</figcaption>
 		</figure> <!-- card // -->

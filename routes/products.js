@@ -27,6 +27,7 @@ router.post('/cadastroJogos', (req, res)=>{
         res.redirect('/logProd/cadastroJogos');
     }).catch(err => console.log(err));
 
+    ///NEO4J
     session
     .run('MERGE(n:Jogo {titulo:{titulo},codigo:{codigo} } ) MERGE(m:Tag { name:{tag1} } ) MERGE(o:Tag {name:{tag2} } ) MERGE ( p:Tag {name:{tag3} } ) MERGE (n)-[r:PERTENCE]->(m) MERGE (n)-[t:PERTENCE]->(o) MERGE (n)-[y:PERTENCE]->(p)', {titulo:titulo, codigo:codigo, tag1: tag1, tag2:tag2, tag3: tag3})
     .then(function(){
@@ -61,9 +62,9 @@ router.post('/cadastroLivros', (req, res)=>{
 })
 
 router.post('/cadastroDeco', (req, res)=>{
-    const {titulo, codigo, preço, conteudo, imagem, tag1, tag2, tag3 } = req.body;
+    const {titulo, codigo, preço, genero, diretor, imagem, tag1, tag2, tag3 } = req.body;
     const newProd = new Product({
-        titulo, codigo, preço, conteudo, imagem
+        titulo, codigo, preço, genero, diretor, imagem
     });
     newProd.save()
     .then(prod=>{
